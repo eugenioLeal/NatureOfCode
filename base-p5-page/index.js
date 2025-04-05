@@ -4,7 +4,7 @@ function setup() {
     canvasPadding = floor(windowWidth*0.1) // 10% padding
     createCanvas(windowWidth - canvasPadding, windowHeight - canvasPadding);
     centerCanvas();
-    colorMode(HSB, 360, 100, 100);
+    colorMode(HSB, 360, 100, 100, 255);
     background(0, 0, 50);
 }
 
