@@ -33,7 +33,13 @@ class Walker {
     step() {
         let step = 3;
         let moveX = step * accept_reject();
+        if (random([true, false])) {
+            moveX *= -1;
+        }
         let moveY = step * accept_reject();
+        if (random([true, false])) {
+            moveY *= -1;
+        }
 
         this.x += moveX;
         this.y += moveY;
