@@ -18,7 +18,7 @@ function setup() {
 function draw() {
     let canvasMid = width / 2;
     let stdev = canvasMid / 2; // standard deviation
-    let x = randomGaussian(canvasMid, 60);
+    let x = randomGaussian(canvasMid, stdev);
     let h = 0, b = 100; // variables for hue and brightness
     if (x <= canvasMid) {
         h = map(x, 0, canvasMid, 190, 255);
