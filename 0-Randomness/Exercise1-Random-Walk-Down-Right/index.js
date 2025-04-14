@@ -34,7 +34,6 @@ class Walker {
     step() {
         let choice = floor(random(6));
 
-        console.log(choice);
         if (choice <= 1) { // Choice is 0 or 1
             this.x++; // greater chance to go to the right
         } else if (choice > 1 && choice <= 3) { // Choice is 2 or 3

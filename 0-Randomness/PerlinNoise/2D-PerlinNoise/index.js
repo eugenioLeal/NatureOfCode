@@ -1,7 +1,8 @@
 let canvasPadding;
 let inc = 0.02;
-let start = 0;
+let startY = 0, startX = 0;
 let xoff = 0, yoff = 0;
+//let up = false, down = false, left = false, right = false;
 
 function setup() {
     canvasPadding = floor(windowWidth*0.1) // 10% padding
@@ -12,11 +13,26 @@ function setup() {
     pixelDensity(1);
 }
 
+function up() {
+    //up = true;
+    //down = false;
+    startY -= inc;
+}
+function down() {
+    startY += inc;
+}
+function left() {
+    startX -= inc;
+}
+function right() {
+    startX += inc;
+}
+
 function draw() {
     loadPixels();
-    let yoff = start;
+    let yoff = startY;
     for(let row = 0; row < height; row++) {
-        let xoff = 0;
+        let xoff = startX;
         for(let col = 0; col < width; col++) {
             let idx = (row * width + col) * 4;
             let r = noise(xoff, yoff) * 255;
@@ -29,7 +45,8 @@ function draw() {
         yoff += inc;
     }
     updatePixels();
-    start += inc;
+    //startY -= inc;
+    //startX += inc;
     // you can modify the number of wave combinations (octaves) and by what factor does the change in amplitude and frequency
     // in octave generation (falloff amount).
     // This is done by the noiseDetail(octaves, falloff_amount) function
@@ -65,6 +82,7 @@ document.addEventListener('keydown', (e) => {
             break;
         case 'ArrowRight':
             console.log('Right arrow pressed');
+            right();
             break;
     }
 });
